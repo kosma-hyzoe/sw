@@ -1,4 +1,4 @@
-package training.bits.friends;
+package bits.friends;
 
 import java.io.IOException;
 import java.util.Scanner;

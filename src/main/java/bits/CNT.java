@@ -1,4 +1,4 @@
-package training.bits;
+package bits;
 import java.util.*;
 
 public class CNT {
@@ -6,12 +6,12 @@ public class CNT {
         int count = 0;
         while (value != 0) {
             count += value & 1;
-            value >>>= 1; // Using unsigned right shift to handle negative numbers correctly
+            value >>>= 1;
         }
         return count;
     }
 
     public static void main(String[] args) {
-//        Judge.run(new CNT());
+        Judge.run(new CNT());
     }
 }
