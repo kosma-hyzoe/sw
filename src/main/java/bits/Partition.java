@@ -16,11 +16,7 @@ public class Partition {
     private static int[] createBitmasks(int n) {
         int[] bitmasks = new int[1 << n];
         for (int i = 0; i < (1 << n); i++) {
-            for (int j = 0; j < n; j++) {
-                if ((i & (1 << j)) != 0) {
-                    bitmasks[i] |= (1 << j);
-                }
-            }
+                bitmasks[i] = i;
         }
         return bitmasks;
     }

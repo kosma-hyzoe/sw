@@ -2,6 +2,7 @@ package bits;
 
 import java.util.BitSet;
 
+// XOR instead of &, ~ can save an operation
 public class Container {
     private BitSet bitSet;
     private int size;

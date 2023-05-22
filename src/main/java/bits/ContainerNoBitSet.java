@@ -1,6 +1,5 @@
 package bits;
 
-
 public class ContainerNoBitSet {
   private byte[] bitArray;
     private int size;

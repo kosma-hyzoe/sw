@@ -1,6 +1,8 @@
 package bits;
 
 import java.util.*;
+// make an int array containing number of set bits in each
+// then `res += data[(value)] & 0xFF]; res += data[(value >> 8)] & 0xFF]
 
 public class CNT {
     public byte popCount(int value) {
