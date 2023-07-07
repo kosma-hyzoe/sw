@@ -1,4 +1,4 @@
-public class NAD {
+public class NADOLD {
 
 	private static final long INF = (long) 1e18;
     private long minCost;
