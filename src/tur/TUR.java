@@ -12,12 +12,12 @@ public class TUR {
 	public int getBestResult(int[] board, int size) {
 		bestResult = Integer.MIN_VALUE;
 		triedMoves = new boolean[N_ROUNDS][size];
-		backtrackMoves(0, 0, board, size);
+		backtrackMoves(0, bestResult, board, size);
 		return bestResult;
 	}
 
 	private boolean backtrackMoves(int round, int result, int[] board, int size) {
-		if (round == N_ROUNDS - 1) {
+		if (round == N_ROUNDS) {
 			if (result > bestResult) {
 				bestResult = result;
 				return true;
@@ -35,6 +35,7 @@ public class TUR {
 				tmpBoard[i] = 1;
 				int playerScore = sumScore(i, 1, tmpBoard, size);
 				int opponentScore = performOpponentMove(tmpBoard, size);
+				
 
 				if (backtrackMoves(round + 1, playerScore - opponentScore, tmpBoard, size)) {
 					return true;
@@ -47,10 +48,10 @@ public class TUR {
 	private int performOpponentMove(int[] board, int size) {
 		int bestResult = 0;
 		int[] postBestMoveBoard = new int[size];
+		int[] tmpBoard = new int[size];
 
 		for (int i = 0; i < size; i++) {
 			if (board[i] == 0) {
-				int[] tmpBoard = new int[size];
 				System.arraycopy(board, 0, tmpBoard, 0, size);
 				int scoreAfterMove = sumScore(i, 2, tmpBoard, size);
 				if (scoreAfterMove > bestResult) {

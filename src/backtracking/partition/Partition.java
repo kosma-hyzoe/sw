@@ -1,35 +1,33 @@
+package partition;
 
 import java.util.Arrays;
 
 public class Partition {
+    public static void main(String[] args) {
+		judge.run(new Partition());
+    }
 
-//    private static boolean checkComb(int[] arr, int p1s, int p2s, int ts, int i) {
-//        if (i == arr.length) {
-//            return p1s == p2s && ts == p1s;
-//        }
-//
-//        for (int j = i; j < arr.length; j++) {
-//            if (checkComb(arr, p1s + arr[j], p2s, j)
-//                        || checkComb(arr, p1s, p2s + arr[j], j)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    public static boolean checkPartition(int[] arr, int n) {
-//        int sum = 0;
-//        for (int i = 0; i < arr.length; i++) {
-//                sum += arr[i];
-//        }
-//        if (sum % 2 != 0) {
-//            return false;
-//        }
-//        int target_sum = sum / 2;
-//
-//        int p1s = arr[0];
-//        int p2s = 0;
-//
-//
-//        return checkComb(arr, p1s, p2s, target_sum, 0);
+    private static boolean backtrack(int i, int p1s, int p2s, int ts, int[] array, int n) {
+        if (i == n) {
+            return p1s == p2s && ts == p1s;
+        }
+
+        return backtrack(i + 1, p1s + array[i], p2s, ts, array, n)
+                || backtrack(i + 1, p1s, p2s + array[i], ts, array, n);
+    }
+
+    public static boolean checkPartition(int[] array, int n) {
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += array[i];
+        }
+        if (sum % 2 != 0) {
+            return false;
+        }
+
+        int p1s = array[0];
+        int p2s = 0;
+
+        return backtrack(1, p1s, p2s, sum / 2, array, n);
+    }
 }
