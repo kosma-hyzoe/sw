@@ -1,6 +1,7 @@
-package nad; // TODO delete
+package nad;
 
-public class NAD {
+public class NAD1 {
+	// WIP, a new version with less help from chatGPT :')
     private long recurseCost(long compCost, int k, boolean[] isBusy, int kk, int nn, long[][] cc) {
         int cost = 0;
         for (int j = k; j < kk;  j++) {

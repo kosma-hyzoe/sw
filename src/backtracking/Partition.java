@@ -3,10 +3,6 @@ package partition;
 import java.util.Arrays;
 
 public class Partition {
-    public static void main(String[] args) {
-		judge.run(new Partition());
-    }
-
     private static boolean backtrack(int i, int p1s, int p2s, int ts, int[] array, int n) {
         if (i == n) {
             return p1s == p2s && ts == p1s;
